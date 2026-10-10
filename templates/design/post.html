@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Single image: social post or ad. Copy into projects/<slug>/designs/, edit
+     the text and the screenshot, then:
+       node tools/render.mjs projects/<slug>/designs/post.html --out projects/<slug>/assets/out
+     Layout reflows for square, portrait (4:5), story (9:16) and landscape. -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="sizes" content="1080x1080,1080x1350,1080x1920,1200x628">
+<link rel="stylesheet" href="../../../templates/design/base.css">
+<link rel="stylesheet" href="../brand.css">
+<style>
+  .frame { justify-content: space-between; }
+  .copy { display: flex; flex-direction: column; gap: calc(var(--u) * 3); }
+  .visual { display: flex; justify-content: center; align-items: flex-end; flex: 1; min-height: 0; }
+  [data-shape='portrait'] .phone, [data-shape='story'] .phone { height: 100%; width: auto; }
+  [data-shape='square'] .frame, [data-shape='landscape'] .frame { flex-direction: row; align-items: center; }
+  [data-shape='square'] .copy, [data-shape='landscape'] .copy { flex: 1.1; }
+  [data-shape='square'] .visual, [data-shape='landscape'] .visual { flex: 0.9; align-items: center; }
+  [data-shape='square'] .headline { font-size: calc(var(--u) * 7.5); }
+  [data-shape='square'] .phone { --pw: calc(var(--u) * 36); }
+  [data-shape='landscape'] .headline { font-size: calc(var(--u) * 8); }
+</style>
+</head>
+<body>
+<div class="frame grain">
+  <div class="copy">
+    <div class="eyebrow">Project name</div>
+    <h1 class="headline">One promise,<br><span class="accent">said plainly.</span></h1>
+    <p class="sub">One supporting line that makes the promise believable.</p>
+    <div class="cta">Try it free</div>
+  </div>
+  <div class="visual">
+    <div class="phone"><img src="../assets/screens/home.png" alt=""></div>
+  </div>
+</div>
+</body>
+</html>

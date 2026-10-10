@@ -1,0 +1,118 @@
+/* Shared base for every design rendered by tools/render.mjs and tools/video.mjs.
+   A design links this file, then its project's brand.css, then adds its own
+   styles. The render tool sets --w, --h, --u (1% of the shorter side) and
+   html[data-shape] = square | portrait | story | landscape. */
+
+:root {
+  /* fallbacks — each project's brand.css overrides these */
+  --bg: #0b0b0c;
+  --fg: #f5f5f4;
+  --muted: #a1a1aa;
+  --accent: #7c5cff;
+  --accent-ink: #ffffff;
+  --card: #18181b;
+  --font-head: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --radius: calc(var(--u, 10.8px) * 3);
+
+  --w: 1080px;
+  --h: 1080px;
+  --u: 10.8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* the canvas: one full-frame box; slides in a carousel are each a .frame */
+.frame {
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  padding: calc(var(--u) * 7);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--u) * 3);
+  background: var(--bg);
+}
+
+/* stories/reels keep text out of the platform UI (top bar, caption, buttons) */
+[data-shape='story'] .frame {
+  padding: calc(var(--h) * 0.13) calc(var(--u) * 7) calc(var(--h) * 0.2);
+}
+
+/* type scale, all relative to the frame */
+.eyebrow { font-size: calc(var(--u) * 3); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.headline { font-family: var(--font-head); font-size: calc(var(--u) * 9); line-height: 1.02; font-weight: 800; letter-spacing: -0.02em; }
+.headline.xl { font-size: calc(var(--u) * 12); }
+.headline.sm { font-size: calc(var(--u) * 6.5); }
+.sub { font-size: calc(var(--u) * 4); line-height: 1.3; color: var(--muted); }
+.body { font-size: calc(var(--u) * 3.6); line-height: 1.4; }
+.accent { color: var(--accent); }
+
+.cta {
+  align-self: flex-start;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: calc(var(--u) * 3.8);
+  padding: calc(var(--u) * 2.4) calc(var(--u) * 5);
+  border-radius: 999px;
+}
+
+.card { background: var(--card); border-radius: var(--radius); padding: calc(var(--u) * 4); }
+.logo { height: calc(var(--u) * 6); width: auto; }
+.grow { flex: 1; }
+.row { display: flex; gap: calc(var(--u) * 3); align-items: center; }
+.center { align-items: center; text-align: center; justify-content: center; }
+
+/* a phone that holds a real screenshot: <div class="phone"><img src="..."></div>
+   Sized by --pw (width); add .fill-h to size it by its container's height instead. */
+.phone {
+  --pw: calc(var(--u) * 46);
+  width: var(--pw);
+  aspect-ratio: 9 / 19.5;
+  border-radius: calc(var(--u) * 6);
+  padding: calc(var(--u) * 1.6);
+  background: #1c1c1e;
+  box-shadow: 0 0 0 calc(var(--u) * .4) #3a3a3c, 0 calc(var(--u) * 4) calc(var(--u) * 10) rgba(0,0,0,.45);
+}
+.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: calc(var(--u) * 4.6); display: block; }
+.phone.fill-h { height: 100%; width: auto; }
+[data-shape='landscape'] .phone { --pw: calc(var(--u) * 40); }
+[data-shape='story'] .phone { --pw: calc(var(--u) * 62); }
+
+/* a browser window for web products */
+.browser { border-radius: calc(var(--u) * 2); overflow: hidden; background: var(--card); box-shadow: 0 calc(var(--u) * 3) calc(var(--u) * 8) rgba(0,0,0,.4); }
+.browser::before { content: '● ● ●'; display: block; padding: calc(var(--u) * 1.2) calc(var(--u) * 2); font-size: calc(var(--u) * 1.8); color: var(--muted); letter-spacing: .3em; }
+.browser img { width: 100%; display: block; }
+
+/* subtle film grain so flat colour doesn't band in video */
+.grain::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* motion presets for reels: add class + style="animation-delay: 1.2s" */
+@keyframes rise { from { opacity: 0; transform: translateY(calc(var(--u) * 6)); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop { 0% { opacity: 0; transform: scale(.8); } 70% { transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes out { to { opacity: 0; } }
+@keyframes drift { from { transform: translateY(calc(var(--u) * 4)) scale(1.02); } to { transform: translateY(calc(var(--u) * -4)) scale(1.02); } }
+.rise { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+.fade { animation: fade .6s ease both; }
+.pop { animation: pop .5s cubic-bezier(.2,.7,.2,1) both; }
+.drift { animation: drift 6s ease-in-out both; }
+
+/* a reel is a stack of timed scenes: <section class="scene" style="--in:0s; --out:3s"> */
+.scene { position: absolute; inset: 0; opacity: 0; animation: fade .35s ease var(--in, 0s) both, out .35s ease var(--out, 999s) forwards; }
+.scene.last { animation: fade .35s ease var(--in, 0s) both; }

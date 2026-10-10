@@ -17,7 +17,7 @@ Write `projects/<slug>/launch-plan.md` with:
    - T-14 to T-1: waitlist/landing page, teaser content, seed 10–20 real users, collect first testimonials.
    - Launch week: the announcement on every owned channel, community posts (follow each community's self-promo rules), Product Hunt / store featuring requests if relevant.
    - Days 8–30: double down on what moved the number, cut the rest. Weekly review (see `weekly-review`).
-5. **Asset list** — every image/video needed, with format and size. Mark which ones go to Higgsfield (`higgsfield-generate`, `higgsfield-product-photoshoot`, `higgsfield-youtube-thumbnail`) and draft the prompt for each using the image style in `brand.md`.
+5. **Asset list** — every image/video needed, with format and size, and how it gets made: `make-visual`, `make-video`, real screenshots (`tools/shot.mjs`), or filmed by the user.
 6. **Budget** — split by channel; with €0 budget, organic only and say so.
 7. **Risks** — what could make this flop and the early signal for it.
 

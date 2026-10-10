@@ -15,8 +15,8 @@ argument-hint: "[project slug] [topic or source] [platforms] [language]"
    - **LinkedIn**: story → lesson → question; no hashtag wall.
    - **Reddit**: written as a member, value first, link only if the sub allows it; name the subreddit and its rule you checked.
    - **Facebook groups / Threads**: conversational, one question to drive replies.
-4. Language: write in the language asked (Lithuanian and English are both common here); do not machine-translate idioms — rewrite them.
-5. For each post that needs a visual, add an image/video prompt for `higgsfield-generate` that reuses the brand image style.
+4. Language: write in the language asked; do not machine-translate idioms — rewrite them.
+5. Make the visuals, not just describe them: `make-visual` for images and carousels, `make-video` for reels/TikToks.
 6. Append the posts to `calendar.md` with status `draft`.
 
 Never claim results, user counts or reviews that are not in `brand.md` → Proof.
