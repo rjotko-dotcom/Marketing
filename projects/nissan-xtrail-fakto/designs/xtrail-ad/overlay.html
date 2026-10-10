@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="duration" content="30">
+<!-- Transparent overlay for build.py (tools/video.mjs --alpha, 1920x1080).
+     Times match SHOTS in build.py. Logos: faktoauto.lt. Fonts: Barlow Condensed, Inter (Google Fonts, OFL). -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --red: #c3002f; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; background: transparent; overflow: hidden; color: #fff;
+    font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  .abs { position: absolute; }
+  .t { opacity: 0; animation: tin var(--d, .6s) cubic-bezier(.2,.7,.2,1) var(--in) both, tout .35s ease var(--out) forwards; }
+  @keyframes tin { from { opacity: 0; transform: translateY(24px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+  @keyframes tout { to { opacity: 0; } }
+  .head { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; line-height: .95;
+    text-shadow: 0 4px 30px rgba(0,0,0,.45); }
+  .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: .5em; text-transform: uppercase; font-size: 30px; }
+  .bar { height: 4px; background: var(--red); transform-origin: left; animation: grow .7s cubic-bezier(.2,.7,.2,1) var(--in) both; }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .sub { font-size: 30px; font-weight: 400; letter-spacing: .02em; text-shadow: 0 2px 18px rgba(0,0,0,.6); }
+
+  /* cinema bars */
+  .lb { left: 0; right: 0; height: 60px; background: #000; animation: lbout .8s cubic-bezier(.6,0,.2,1) 25.9s forwards; }
+  .lb.top { top: 0; } .lb.bot { bottom: 0; }
+  @keyframes lbout { to { height: 0; } }
+
+  /* callouts: dot + line drawn on + label */
+  svg.co { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; }
+  svg.co g { opacity: 0; animation: tin .01s linear var(--in) both, tout .25s ease var(--out) forwards; }
+  svg.co path { fill: none; stroke: #fff; stroke-width: 2.5; stroke-dasharray: 600; stroke-dashoffset: 600;
+    animation: draw .45s cubic-bezier(.3,.7,.2,1) var(--in) forwards; }
+  svg.co circle.ring { fill: none; stroke: var(--red); stroke-width: 3; transform-box: fill-box; transform-origin: center;
+    animation: ping .5s ease-out var(--in) both; }
+  svg.co circle.dot { fill: #fff; }
+  svg.co text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: .06em; fill: #fff;
+    text-transform: uppercase; paint-order: stroke; stroke: rgba(0,0,0,.35); stroke-width: 6px; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes ping { from { transform: scale(2.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  /* 360 badge */
+  .badge { right: 90px; top: 100px; display: flex; align-items: center; gap: 16px; }
+  .badge svg { width: 64px; height: 64px; animation: spin 5.8s linear 7.6s both; }
+  @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  .badge span { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; letter-spacing: .08em; }
+
+  /* detail labels */
+  .lab { left: 110px; bottom: 120px; display: flex; flex-direction: column; gap: 12px; }
+  .lab .bar { width: 70px; }
+  .lab .head { font-size: 72px; }
+
+  /* end card */
+  .end { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,.55), rgba(0,0,0,.25) 70%); opacity: 0; animation: tin .9s ease 26.2s both; }
+  .end .head { font-size: 120px; }
+  .end .sub { font-size: 34px; }
+  .logos { display: flex; align-items: center; gap: 56px; margin-top: 18px; }
+  .logos .fakto { height: 74px; background: #fff; padding: 14px 26px; border-radius: 4px; }
+  .logos .nissan { height: 96px; filter: brightness(0) invert(1); }
+  .url { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 600; letter-spacing: .12em; }
+  .legal { left: 0; right: 0; bottom: 34px; text-align: center; font-size: 17px; color: rgba(255,255,255,.75); opacity: 0; animation: tin .6s ease 26.8s both; }
+</style>
+</head>
+<body>
+
+<!-- 2.6–5.6 title over the sunset -->
+<div class="abs" style="left:110px; bottom:150px; display:flex; flex-direction:column; gap:14px">
+  <div class="eyebrow t" style="--in:3.0s; --out:5.25s">Naujasis</div>
+  <div class="head t" style="--in:3.2s; --out:5.25s; --d:.8s; font-size:150px">Nissan X-Trail</div>
+  <div class="t" style="--in:3.2s; --out:5.25s"><div class="bar" style="--in:3.5s; width:240px"></div></div>
+</div>
+
+<!-- 5.6–7.6 grille at dusk -->
+<div class="abs" style="left:110px; top:50%; transform:translateY(-50%)">
+  <div class="head t" style="--in:5.9s; --out:7.35s; font-size:110px">Naujas veidas.</div>
+  <div class="sub t" style="--in:6.2s; --out:7.35s; margin-top:14px">Tas pats tvirtas charakteris.</div>
+</div>
+
+<!-- 7.6–13.4 the 360 -->
+<div class="abs badge t" style="--in:7.7s; --out:13.2s">
+  <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="3"/>
+    <path d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#c3002f" stroke-width="4" stroke-linecap="round"/></svg>
+  <span>360°</span>
+</div>
+
+<svg class="co">
+  <!-- 7.6–8.5 front: grille -->
+  <g style="--in:7.75s; --out:8.3s">
+    <circle class="ring" cx="740" cy="770" r="16" style="--in:7.75s"/><circle class="dot" cx="740" cy="770" r="6"/>
+    <path d="M740 770 L900 560 H1240" style="--in:7.8s"/>
+    <text x="910" y="545">Naujos grotelės</text>
+  </g>
+  <!-- 8.5–9.5 front 3/4: lights -->
+  <g style="--in:8.65s; --out:9.3s">
+    <circle class="ring" cx="530" cy="695" r="16" style="--in:8.65s"/><circle class="dot" cx="530" cy="695" r="6"/>
+    <path d="M530 695 L380 520 H150" style="--in:8.7s"/>
+    <text x="150" y="505">LED žibintai</text>
+  </g>
+  <!-- 9.5–10.5 side: wheels -->
+  <g style="--in:9.65s; --out:10.3s">
+    <circle class="ring" cx="1140" cy="875" r="16" style="--in:9.65s"/><circle class="dot" cx="1140" cy="875" r="6"/>
+    <path d="M1140 875 L1320 700 H1760" style="--in:9.7s"/>
+    <text x="1330" y="685">Raudoni akcentai</text>
+  </g>
+  <!-- 10.5–11.5 rear 3/4: rear lights -->
+  <g style="--in:10.65s; --out:11.3s">
+    <circle class="ring" cx="470" cy="480" r="16" style="--in:10.65s"/><circle class="dot" cx="470" cy="480" r="6"/>
+    <path d="M470 480 L640 300 H1020" style="--in:10.7s"/>
+    <text x="650" y="285">Naujas galas</text>
+  </g>
+</svg>
+
+<!-- 13.4–18.6 detail jumps -->
+<div class="abs lab t" style="--in:13.5s; --out:14.25s"><div class="bar" style="--in:13.5s"></div><div class="head">V-Motion</div></div>
+<div class="abs lab t" style="--in:14.5s; --out:15.25s"><div class="bar" style="--in:14.5s"></div><div class="head">Pasiruošęs bekelei</div></div>
+<div class="abs lab t" style="--in:15.5s; --out:16.25s"><div class="bar" style="--in:15.5s"></div><div class="head">e-POWER</div></div>
+<div class="abs lab t" style="--in:16.5s; --out:17.25s"><div class="bar" style="--in:16.5s"></div><div class="head">Google integruota</div></div>
+<div class="abs lab t" style="--in:17.5s; --out:18.3s"><div class="bar" style="--in:17.5s"></div><div class="head">ProPilot</div></div>
+
+<!-- 18.6–25.9 in motion -->
+<div class="abs" style="left:110px; bottom:140px">
+  <div class="head t" style="--in:18.9s; --out:21.2s; --d:.8s; font-size:170px">e-POWER</div>
+  <div class="sub t" style="--in:19.3s; --out:21.2s; margin-top:10px">Varo elektra. Krauti nereikia.</div>
+</div>
+<div class="abs" style="right:110px; top:140px; text-align:right">
+  <div class="head t" style="--in:21.8s; --out:23.3s; font-size:110px">Kiekvienam keliui.</div>
+</div>
+
+<!-- cinema bars (open up for the end card) -->
+<div class="abs lb top"></div><div class="abs lb bot"></div>
+
+<!-- 25.9–30 end card -->
+<div class="abs end">
+  <div class="eyebrow">Naujasis Nissan X-Trail</div>
+  <div class="head">Atvykite pamatyti</div>
+  <div class="bar" style="--in:26.6s; width:200px"></div>
+  <div class="logos">
+    <img class="fakto" src="../../assets/fakto-logo.svg" alt="Fakto Auto">
+    <img class="nissan" src="../../assets/nissan-logo.svg" alt="Nissan">
+  </div>
+  <div class="url">faktoauto.lt</div>
+</div>
+<div class="abs legal">Nuotraukos iliustracinės. Oficialios WLTP degalų sąnaudų ir CO₂ emisijų vertės — faktoauto.lt</div>
+
+</body>
+</html>

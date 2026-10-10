@@ -46,7 +46,7 @@ def main():
 
     from gradio_client import Client, handle_file
     space, call = MODELS[a.model]
-    client = Client(space, hf_token=token, verbose=False)
+    client = Client(space, token=token, verbose=False) if token else Client(space, verbose=False)
     video, seed = call(client, handle_file, a)
     path = video['video'] if isinstance(video, dict) else video
     os.makedirs(os.path.dirname(a.out) or '.', exist_ok=True)

@@ -4,6 +4,26 @@
 **Purpose:** internal test video by Rimvydas (Fakto Auto). Before it goes public, swap the reference photos for Nissan dealer-portal assets.
 **Storyboard:** `assets/out/xtrail-storyboard-1920x1440.png`
 
+## Built version v1 (2026-10-10): made entirely from official press photos, €0
+
+`xtrail-ad/build.py` builds it end to end → `assets/out/xtrail-fakto-ad-30s-1920x1080.mp4`.
+No Fakto showroom photos existed yet, so this cut opens on the car rather than the dealership. Fakto shows up on the end card.
+
+| Time | Shot (press photo #) | Motion | On screen |
+|---|---|---|---|
+| 0:00 | Tail light (44) | depth parallax push-in, fade from black | — |
+| 0:02.6 | Sunset front 3/4 (28) | push-in | NAUJASIS / NISSAN X-TRAIL |
+| 0:05.6 | Grille at dusk (11) | sideways parallax | Naujas veidas. Tas pats tvirtas charakteris. |
+| 0:07.6 | 360°: front (54) → 3/4 (04) → side (03) → rear 3/4 (35) → badge (47) → front close (23) | whip cuts, parallax, white flashes | 360° badge + callout lines: grotelės, LED žibintai, raudoni akcentai, naujas galas |
+| 0:13.4 | Details: grille macro (13), wheel (01), e-POWER badge (24), Google Maps screen (08), interior (10) | 1 s each, flash cuts | V-Motion · Pasiruošęs bekelei · e-POWER · Google integruota · ProPilot |
+| 0:18.6 | Forest drive | AI clip (LTX-Video) | e-POWER — Varo elektra. Krauti nereikia. |
+| 0:21.5 | Aerial, blue car (19) | parallax rise | Kiekvienam keliui. |
+| 0:23.5 | Mountain overlook, two cars | AI clip (LTX-Video) | — |
+| 0:25.9 | Lake overview (30), darkened | pull-out, cinema bars open | ATVYKITE PAMATYTI · Fakto + Nissan logos · faktoauto.lt · legal line |
+
+Music: synthesised in `xtrail-ad/music.py` (drone, pulse, risers, booms on the cuts), so there's no licence.
+**Before publishing:** add the WLTP fuel and CO₂ figures to the legal line, swap the press photos for dealer-portal assets, and optionally replace the opening with real Fakto showroom footage.
+
 ## How the footage gets made (€0)
 
 Higgsfield bills its own credits. A Claude subscription doesn't cover them, and its free plan has no credits and no commercial rights. So the realistic shots are **filmed by you on a phone at Fakto**. The real car in the real showroom beats AI for realism, and the badges, grille and lights are guaranteed to be correct.
