@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="sizes" content="1920x1440">
+<!-- Storyboard for xtrail-launch-30s-script.md.
+     Photos: Nissan Europe press previews (europe.nissannews.com), used here as internal reference only.
+     Logos: faktoauto.lt. Fonts: Barlow Condensed, Inter (Google Fonts, OFL). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../templates/design/base.css">
+<link rel="stylesheet" href="../brand.css">
+<style>
+  .sheet { padding: 56px 60px; display: flex; flex-direction: column; gap: 36px; width: var(--w); height: var(--h); background: var(--bg); }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #2a2a2e; padding-bottom: 24px; }
+  header h1 { font-family: var(--font-head); font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; line-height: 1; }
+  header h1 span { color: var(--accent); }
+  header p { color: var(--muted); font-size: 20px; margin-top: 10px; }
+  header img { height: 44px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 40px; }
+  .panel { display: flex; flex-direction: column; gap: 14px; }
+  .shot { position: relative; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background: #111; outline: 1px solid #2a2a2e; }
+  .shot > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .shot .dim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55)); }
+  .shot svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ost { position: absolute; left: 22px; bottom: 18px; font-family: var(--font-head); font-weight: 700; text-transform: uppercase; color: #fff; font-size: 30px; letter-spacing: .04em; text-shadow: 0 2px 12px rgba(0,0,0,.6); }
+  .ost small { display: block; font-size: 15px; font-family: var(--font-body); font-weight: 600; letter-spacing: .14em; color: #ddd; }
+  .tag { position: absolute; top: 12px; right: 12px; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 10px; border-radius: 3px; background: rgba(0,0,0,.65); color: #fff; }
+  .tag.film { background: var(--accent); }
+  .meta { display: flex; gap: 14px; align-items: baseline; }
+  .num { font-family: var(--font-head); font-size: 40px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .title { font-family: var(--font-head); font-size: 30px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+  .time { margin-left: auto; color: var(--muted); font-size: 18px; font-variant-numeric: tabular-nums; }
+  .desc { font-size: 18px; line-height: 1.45; color: #d6d6d8; }
+  .vo { font-size: 17px; color: var(--muted); font-style: italic; }
+  .vo b { font-style: normal; color: #bbb; font-weight: 600; }
+
+  /* shot 1: showroom sketch (real showroom is filmed by Rimvydas) */
+  .showroom { position: absolute; inset: 0; background: linear-gradient(180deg, #0d1b33 0%, #1b2d4d 55%, #10141c 56%, #0b0d12 100%); }
+  .showroom .glass { position: absolute; left: 14%; right: 14%; top: 26%; bottom: 44%; background: linear-gradient(180deg, #f6e7c8, #c9a46a); opacity: .85; box-shadow: 0 0 60px 10px rgba(246,214,150,.35); }
+  .showroom .glass::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 23%, #1b2d4d 23% 24%); }
+  .showroom .sign { position: absolute; left: 14%; right: 14%; top: 17%; height: 7%; background: #0a0a0b; display: flex; align-items: center; justify-content: space-between; padding: 0 3%; }
+  .showroom .sign img { height: 70%; }
+  .showroom .car { position: absolute; left: 33%; width: 34%; bottom: 44.5%; height: 11%; background: #222; border-radius: 40% 40% 8% 8% / 70% 70% 10% 10%; }
+  .showroom .reflect { position: absolute; left: 14%; right: 14%; top: 57%; height: 12%; background: linear-gradient(180deg, rgba(246,214,150,.25), transparent); }
+
+  /* shot 4: detail jump strip */
+  .strip { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; background: #000; }
+  .strip div { background-image: url(../assets/ref/forest-front34-b.jpg); background-repeat: no-repeat; position: relative; }
+  .strip span { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 6px #000; }
+  .strip .ui { background: #0f1115; background-image: none; display: grid; place-items: center; color: #6b7280; font-size: 12px; text-align: center; padding: 6px; }
+
+  /* shot 6: end card */
+  .end { position: absolute; inset: 0; }
+  .end img.bg { width: 100%; height: 100%; object-fit: cover; filter: brightness(.32); }
+  .end .copy { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 7%; gap: 8px; }
+  .end h3 { font-family: var(--font-head); font-size: 42px; text-transform: uppercase; line-height: 1; }
+  .end p { font-size: 15px; color: #ddd; }
+  .end .logos { display: flex; gap: 22px; align-items: center; margin-top: 10px; }
+  .end .logos img { height: 30px; }
+  .end .logos img.n { height: 38px; filter: invert(1); }
+  .end .legal { position: absolute; bottom: 10px; left: 7%; right: 7%; font-size: 10px; color: #aaa; }
+  .end .bar { width: 60px; height: 3px; background: var(--accent); }
+
+  footer { margin-top: auto; display: flex; justify-content: space-between; color: var(--muted); font-size: 16px; border-top: 1px solid #2a2a2e; padding-top: 18px; }
+  footer b { color: var(--fg); }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <div>
+      <h1>Naujasis Nissan X-Trail <span>×</span> Fakto Auto</h1>
+      <p>Test ad storyboard v2 · 30 s · 16:9 1920×1080 · LT voiceover · no price</p>
+    </div>
+    <img src="../assets/fakto-logo.svg" alt="Fakto Auto">
+  </header>
+
+  <div class="grid">
+    <!-- 1 -->
+    <div class="panel">
+      <div class="shot">
+        <div class="showroom">
+          <div class="sign"><img src="../assets/fakto-logo-footer.svg"><img src="../assets/nissan-logo.svg" style="filter:invert(1)"></div>
+          <div class="glass"></div><div class="car"></div><div class="reflect"></div>
+        </div>
+        <svg viewBox="0 0 160 90"><path d="M80 80 L80 62" stroke="#fff" stroke-width=".6" marker-end="url(#a)"/><defs><marker id="a" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L6 3L0 6z" fill="#fff"/></marker></defs><text x="84" y="76" fill="#fff" font-size="4" font-family="Inter">slow push-in</text></svg>
+        <span class="tag film">You film</span>
+      </div>
+      <div class="meta"><span class="num">01</span><span class="title">Fakto at blue hour</span><span class="time">0:00–0:04</span></div>
+      <div class="desc">Outside the real showroom, 20 min after sunset. A slow walk toward the lit glass; the X-Trail glows inside. No text, just a low pulse.</div>
+      <div class="vo"><b>VO:</b> —</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="panel">
+      <div class="shot">
+        <img src="../assets/ref/forest-front34-b.jpg" style="transform: scale(2.1); transform-origin: 38% 64%; filter: brightness(.6) contrast(1.15) saturate(.7)">
+                <div class="ost"><small>Naujasis</small>Nissan X-Trail</div>
+        <span class="tag film">You film</span>
+      </div>
+      <div class="meta"><span class="num">02</span><span class="title">Lights on</span><span class="time">0:04–0:07</span></div>
+      <div class="desc">Inside, phone low by the front bumper. The headlights and DRLs switch on, with a soft light hit in the music. The title rises in.</div>
+      <div class="vo"><b>VO:</b> „Pažiūrėkite iš naujo."</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="panel">
+      <div class="shot">
+        <img src="../assets/ref/forest-front34.jpg" style="filter: brightness(.8)">
+        <div class="dim"></div>
+        <svg viewBox="0 0 160 90">
+          <ellipse cx="80" cy="64" rx="56" ry="11" fill="none" stroke="#fff" stroke-width=".5" stroke-dasharray="2 1.5" opacity=".85"/>
+          <path d="M132 60 l4 4 l-5 2" fill="none" stroke="#fff" stroke-width=".6"/>
+          <g stroke="#c3002f" stroke-width=".6" fill="#c3002f">
+            <circle cx="113" cy="51" r="1.1"/><path d="M113 51 L126 40 H150" fill="none"/>
+            <circle cx="98" cy="41" r="1.1"/><path d="M98 41 L108 22 H140" fill="none"/>
+            <circle cx="88" cy="65" r="1.1"/><path d="M88 65 L72 80 H40" fill="none"/>
+          </g>
+          <g fill="#fff" font-family="Inter" font-size="3.6" font-weight="700">
+            <text x="127" y="38.5">GROTELĖS</text><text x="109" y="20.5">LED ŽIBINTAI</text><text x="40" y="78.5">RATLANKIAI</text>
+          </g>
+        </svg>
+        <span class="tag film">You film</span>
+      </div>
+      <div class="meta"><span class="num">03</span><span class="title">360° walk-around</span><span class="time">0:07–0:14</span></div>
+      <div class="desc">One full circle at an even distance, at headlight height. I stabilise it and speed-ramp it. Red callout lines draw on as each part passes.</div>
+      <div class="vo"><b>VO:</b> „Naujas veidas. Tas pats tvirtas charakteris."</div>
+    </div>
+
+    <!-- 4 -->
+    <div class="panel">
+      <div class="shot">
+        <div class="strip">
+          <div style="background-size: auto 300%; background-position: 35% 69%"><span>Grotelės</span></div>
+          <div style="background-size: auto 340%; background-position: 45% 68%"><span>Žibintas</span></div>
+          <div style="background-size: auto 250%; background-position: 52% 87%"><span>Ratas</span></div>
+          <div class="ui">Google ekranas<br>(you film it on)<span>Google</span></div>
+          <div class="ui">N-Trek salonas<br>(you film it)<span>Salonas</span></div>
+        </div>
+        <span class="tag film">You film</span>
+      </div>
+      <div class="meta"><span class="num">04</span><span class="title">Detail jumps</span><span class="time">0:14–0:19</span></div>
+      <div class="desc">Five 1-second macro slides joined by whip/flash cuts. On-screen labels: <b>Google integruota · ProPilot · e-POWER</b>. The screen is real, never a drawn UI.</div>
+      <div class="vo"><b>VO:</b> „Google jau viduje. ProPilot — šalia jūsų kelyje."</div>
+    </div>
+
+    <!-- 5 -->
+    <div class="panel">
+      <div class="shot">
+        <img src="../assets/ref/forest-front34-b.jpg">
+        <div class="dim" style="background: linear-gradient(90deg, rgba(0,0,0,.5), transparent 60%)"></div>
+        <svg viewBox="0 0 160 90"><g stroke="#fff" stroke-width=".4" opacity=".8"><path d="M30 30 L52 30M24 36 L52 36M34 42 L52 42"/></g></svg>
+        <div class="ost">e-POWER</div>
+        <span class="tag">Film + official</span>
+      </div>
+      <div class="meta"><span class="num">05</span><span class="title">In motion</span><span class="time">0:19–0:26</span></div>
+      <div class="desc">The car pulls off the Fakto forecourt and past the camera, then cuts to the forest road: a slow parallax move on the official photo, or your tracking shot (a passenger films).</div>
+      <div class="vo"><b>VO:</b> „Elektrinis važiavimo pojūtis. Be įkrovimo rūpesčių."</div>
+    </div>
+
+    <!-- 6 -->
+    <div class="panel">
+      <div class="shot">
+        <div class="end">
+          <img class="bg" src="../assets/ref/forest-front34.jpg">
+          <div class="copy">
+            <div class="bar"></div>
+            <h3>Atvykite pamatyti</h3>
+            <p>Naujasis Nissan X-Trail jau Fakto Auto · faktoauto.lt</p>
+            <div class="logos"><img src="../assets/fakto-logo.svg"><img class="n" src="../assets/nissan-logo.svg"></div>
+          </div>
+          <div class="legal">WLTP: degalų sąnaudos [—] l/100 km, CO₂ [—] g/km. Nuotraukos iliustracinės.</div>
+        </div>
+        <span class="tag">Made here</span>
+      </div>
+      <div class="meta"><span class="num">06</span><span class="title">End card</span><span class="time">0:26–0:30</span></div>
+      <div class="desc">Car darkened behind the type, then logos, the address and the WLTP line, which is legally required in EU car ads. Motion graphic rendered here.</div>
+      <div class="vo"><b>VO:</b> „Naujasis Nissan X-Trail. Jau Fakto Auto."</div>
+    </div>
+  </div>
+
+  <footer>
+    <span><b>Red tag</b> = you film at Fakto on a phone (4K, landscape, 3 takes) · <b>Made here</b> = edit, callouts, titles, music, at €0</span>
+    <span>Ref photos: Nissan Europe press previews (internal only)</span>
+  </footer>
+</div>
+</body>
+</html>

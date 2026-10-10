@@ -1,12 +1,12 @@
-/* This project's look. Every design in designs/ loads this after
-   templates/design/base.css. Fill from brand.md. */
+/* Nissan X-Trail × Fakto Auto look: Nissan black/white with Nissan red accents.
+   Loaded after templates/design/base.css. */
 :root {
-  --bg: #0b0b0c;
-  --fg: #f5f5f4;
-  --muted: #a1a1aa;
-  --accent: #7c5cff;
+  --bg: #0a0a0b;
+  --fg: #f4f4f2;
+  --muted: #9a9a9f;
+  --accent: #c3002f; /* Nissan red */
   --accent-ink: #ffffff;
-  --card: #18181b;
-  --font-head: 'Inter', system-ui, sans-serif;
+  --card: #161618;
+  --font-head: 'Barlow Condensed', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 }
