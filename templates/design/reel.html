@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- Reel / TikTok / Short (9:16). Each .scene shows between --in and --out.
+     Render:  node tools/video.mjs projects/<slug>/designs/reel.html --audio track.mp3
+     Use royalty-free music only (or add the track in the TikTok/IG app instead). -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="duration" content="10">
+<link rel="stylesheet" href="../../../templates/design/base.css">
+<link rel="stylesheet" href="../brand.css">
+<style>
+  .scene { display: flex; flex-direction: column; justify-content: center; gap: calc(var(--u) * 4);
+           padding: calc(var(--h) * 0.13) calc(var(--u) * 8) calc(var(--h) * 0.2); }
+  .scene .headline { font-size: calc(var(--u) * 11); }
+  .scene .cta { font-size: calc(var(--u) * 6); padding: calc(var(--u) * 3.5) calc(var(--u) * 8); }
+  .scene .eyebrow { font-size: calc(var(--u) * 4.5); }
+</style>
+</head>
+<body>
+<div class="frame grain" style="padding:0">
+
+  <!-- 0–2.6s: hook -->
+  <section class="scene" style="--in:0s; --out:2.6s">
+    <h1 class="headline pop">Stop doing<br><span class="accent">this.</span></h1>
+  </section>
+
+  <!-- 2.6–6s: show the product -->
+  <section class="scene center" style="--in:2.6s; --out:6s">
+    <p class="sub rise" style="animation-delay:2.7s">Do this instead</p>
+    <div class="rise" style="animation-delay:2.9s"><div class="phone drift" style="animation-delay:2.9s"><img src="../assets/screens/home.png" alt=""></div></div>
+  </section>
+
+  <!-- 6–8.2s: proof / benefit -->
+  <section class="scene" style="--in:6s; --out:8.2s">
+    <h2 class="headline rise" style="animation-delay:6.1s">One clear<br>benefit.</h2>
+    <p class="sub rise" style="animation-delay:6.5s">And the proof for it.</p>
+  </section>
+
+  <!-- 8.2–10s: CTA -->
+  <section class="scene last center" style="--in:8.2s">
+    <div class="eyebrow fade" style="animation-delay:8.3s">Project name</div>
+    <div class="cta pop" style="align-self:center; animation-delay:8.5s">Try it free</div>
+  </section>
+
+</div>
+</body>
+</html>

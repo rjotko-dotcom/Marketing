@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- Carousel: every [data-slide] becomes its own PNG (-01, -02 …).
+     Instagram/LinkedIn carousels: 1080x1350. -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="sizes" content="1080x1350">
+<link rel="stylesheet" href="../../../templates/design/base.css">
+<link rel="stylesheet" href="../brand.css">
+<style>
+  .num { font-size: calc(var(--u) * 20); font-weight: 800; color: var(--accent); line-height: 1; }
+  .foot { display: flex; justify-content: space-between; color: var(--muted); font-size: calc(var(--u) * 2.8); }
+</style>
+</head>
+<body>
+
+<div class="frame grain" data-slide>
+  <div class="eyebrow">Project name</div>
+  <h1 class="headline xl grow">The hook goes on slide one.</h1>
+  <div class="foot"><span>@handle</span><span>Swipe →</span></div>
+</div>
+
+<div class="frame" data-slide>
+  <div class="num">1</div>
+  <h2 class="headline sm">First point, one idea per slide.</h2>
+  <p class="body grow">Two or three short lines that explain it. No more than twenty words.</p>
+  <div class="foot"><span>@handle</span><span>2 / 4</span></div>
+</div>
+
+<div class="frame" data-slide>
+  <div class="num">2</div>
+  <h2 class="headline sm">Second point.</h2>
+  <div class="grow row center"><div class="phone"><img src="../assets/screens/home.png" alt=""></div></div>
+  <div class="foot"><span>@handle</span><span>3 / 4</span></div>
+</div>
+
+<div class="frame center" data-slide>
+  <h2 class="headline">The payoff, then one ask.</h2>
+  <div class="cta" style="align-self:center">Link in bio</div>
+</div>
+
+</body>
+</html>
