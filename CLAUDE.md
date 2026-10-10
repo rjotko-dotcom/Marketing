@@ -13,7 +13,7 @@ Marketing for Rimvydas's new projects, done end to end by Claude at zero tool co
 | `projects/<slug>/designs/` | HTML source of every image/video |
 | `projects/<slug>/assets/` | logos, `screens/` (real screenshots), `out/` (rendered PNG/MP4) |
 | `templates/design/` | `base.css` + `post.html`, `carousel.html`, `reel.html` |
-| `tools/` | `render.mjs` (HTML→PNG), `video.mjs` (HTML→MP4), `shot.mjs` (real page→PNG) |
+| `tools/` | `render.mjs` (HTML→PNG), `video.mjs` (HTML→MP4), `shot.mjs` (real page→PNG), `genvideo.py` (photo→AI video clip, open-source Wan 2.2 on free Hugging Face GPU; needs `HF_TOKEN`) |
 | `.claude/skills/` | the workflows below |
 
 ## Skills
