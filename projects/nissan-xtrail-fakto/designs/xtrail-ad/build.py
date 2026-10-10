@@ -116,8 +116,8 @@ def music():
 def final(base, mov, wav):
     OUT.parent.mkdir(parents=True, exist_ok=True)
     run(['ffmpeg', '-y', '-loglevel', 'error', '-i', base, '-i', mov, '-i', wav, '-filter_complex',
-         '[0:v][1:v]overlay=0:0:format=auto,noise=alls=5:allf=t,format=yuv420p[v]',
-         '-map', '[v]', '-map', '2:a', '-c:v', 'libx264', '-crf', '17', '-preset', 'slow',
+         '[0:v][1:v]overlay=0:0:format=auto,noise=alls=3:allf=t,format=yuv420p[v]',
+         '-map', '[v]', '-map', '2:a', '-c:v', 'libx264', '-crf', '20', '-preset', 'slow', '-maxrate', '16M', '-bufsize', '32M',
          '-c:a', 'aac', '-b:a', '256k', '-t', END, '-movflags', '+faststart', OUT])
     print(OUT)
 

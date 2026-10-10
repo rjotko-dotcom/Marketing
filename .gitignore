@@ -4,3 +4,4 @@ node_modules/
 __pycache__/
 .work/
 projects/*/assets/ref/press/
+projects/nissan-xtrail-fakto/assets/out/xtrail-fakto-ad-*.mp4
